@@ -40,7 +40,7 @@ def upload_predict(upload_image, model, img_shape=224):
     img = tf.image.resize(image, [img_shape, img_shape])
     img = tf.cast(img, tf.float32)
     pred_prob = model.predict(tf.expand_dims(img, axis=0))
-    pred_class = food_list[pred_prob.argmax()]
+    pred_class = food_list[pred_prob.argmax(axis=1)]
     return pred_class, pred_prob
 
 
