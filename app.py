@@ -6,9 +6,7 @@ from class_names import food_list
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model(
-        "/Users/hemz/Documents/GitHub/foodsight/07_efficientnetb0_fine_tuned_101_classes_mixed_precision"
-    )
+    model = tf.keras.models.load_model("./my_food_sight_model.h5")
     return model
 
 
