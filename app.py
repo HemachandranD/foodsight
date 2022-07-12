@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 from class_names import food_list
+import numpy as np
 
 
 @st.cache(allow_output_mutation=True)
@@ -35,7 +36,8 @@ def upload_predict(upload_image, model, img_shape=224):
     img_shape (int): size to resize target image to, default 224
     scale (bool): whether to scale pixel values to range(0, 1), default True
     """
-    img = tf.image.resize(upload_image, [img_shape, img_shape])
+    image = np.asarray(upload_image)
+    img = tf.image.resize(image, [img_shape, img_shape])
     img = tf.cast(img, tf.float32)
     pred_prob = model.predict(tf.expand_dims(img, axis=0))
     pred_class = food_list[pred_prob.argmax()]
