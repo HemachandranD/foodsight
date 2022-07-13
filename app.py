@@ -4,9 +4,11 @@ from PIL import Image
 from class_names import food_list
 import numpy as np
 
+st.markdown("<style>body{background-color: Blue;}</style>", unsafe_allow_html=True)
+
 st.set_page_config(
     page_title="Food Sight",
-    page_icon="[:pizza,:eyes]",
+    page_icon=":eyes",
     initial_sidebar_state="expanded",
     menu_items={"About": "# This is an *extremely* cool Food Sight app!"},
 )
