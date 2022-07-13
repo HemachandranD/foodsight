@@ -55,7 +55,7 @@ def upload_predict(upload_image, model, img_shape=224):
 
 
 if file is None:
-    st.text("Please upload an image file")
+    st.text("Please upload an image")
 else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
