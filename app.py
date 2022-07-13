@@ -61,7 +61,7 @@ else:
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
-    score = pred_prob.max()
+    score = np.round(pred_prob.max())
     st.write("This is", image_class)
     st.write(f"Food Sight is {score * 100}% confident")
 
