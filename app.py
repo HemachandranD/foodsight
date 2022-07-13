@@ -63,7 +63,7 @@ else:
     image_class = str(predictions)
     score = f"{pred_prob.max():.2f}"
     st.write("This is", image_class)
-    st.write("Food Sight is {}% confident", score*100)
+    st.write(f"Food Sight is {score * 100}% confident")
 
 if img_file_buffer is None:
     st.text("")
@@ -74,4 +74,4 @@ else:
     image_class = str(predictions)
     score = f"{pred_prob.max():.2f}"
     st.write("This is", image_class)
-     st.write("Food Sight is {}% confident", score*100)
+    st.write(f"Food Sight is {score * 100}% confident")
