@@ -25,6 +25,8 @@ file = st.file_uploader(
 )
 st.set_option("deprecation.showfileUploaderEncoding", False)
 
+img_file_buffer = st.camera_input("Take a picture")
+
 
 def upload_predict(upload_image, model, img_shape=224):
     """
@@ -49,6 +51,18 @@ if file is None:
     st.text("Please upload an image file")
 else:
     image = Image.open(file)
+    st.image(image, use_column_width=True)
+    predictions, pred_prob = upload_predict(image, model)
+    image_class = str(predictions)
+    score = f"{pred_prob.max():.2f}"
+    st.write("The is", image_class)
+    st.write("The Confidence score is approximately", score)
+    print(
+        "The image is classified as ", image_class, "with a similarity score of", score
+    )
+
+if img_file_buffer is not None:
+    image = Image.open(img_file_buffer)
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
