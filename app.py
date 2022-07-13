@@ -6,13 +6,13 @@ import numpy as np
 
 
 @st.cache(allow_output_mutation=True)
-def load_model():
+def load_food_sight():
     model = tf.keras.models.load_model("./my_food_sight_model.h5")
     return model
 
 
-with st.spinner("Model is being loaded.."):
-    model = load_model()
+with st.spinner("Food Sight is being loaded.."):
+    model = load_food_sight()
 
 st.write(
     """
@@ -24,6 +24,8 @@ file = st.file_uploader(
     "Upload the image to be classified", type=["jpg", "png", "jpeg"]
 )
 st.set_option("deprecation.showfileUploaderEncoding", False)
+
+img_file_buffer = st.camera_input("Take a picture")
 
 
 def upload_predict(upload_image, model, img_shape=224):
@@ -47,9 +49,7 @@ def upload_predict(upload_image, model, img_shape=224):
 
 if file is None:
     st.text("Please upload an image file")
-    img_file_buffer = st.camera_input("Take a picture")
-else:
-    image = Image.open(file)
+    image = Image.open(img_file_buffer)
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
@@ -59,9 +59,8 @@ else:
     print(
         "The image is classified as ", image_class, "with a similarity score of", score
     )
-
-if img_file_buffer is not None:
-    image = Image.open(img_file_buffer)
+else:
+    image = Image.open(file)
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
