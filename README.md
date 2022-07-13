@@ -1,6 +1,6 @@
 ## FoodSight 🍔👀
 
-This Project is inspired from FoodVision101 Tensorflow Dataset.
+Food Sight is an Image classification Web app that has been trained and fine tuned on top of EfficientNetV2b0 using the Food Vision 101 datasets.
 
 WebApp URL: [Food Sight](https://hemachandrand-foodsight-app-f9qo2i.streamlitapp.com/)
 
