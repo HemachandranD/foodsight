@@ -47,7 +47,7 @@ def upload_predict(upload_image, model, img_shape=224):
     return pred_class, pred_prob
 
 
-if file is None:
+if file and img_file_buffer is None:
     st.text("Please upload an image file")
 elif img_file_buffer is not None:
     image = Image.open(img_file_buffer)
@@ -57,9 +57,6 @@ elif img_file_buffer is not None:
     score = f"{pred_prob.max():.2f}"
     st.write("The is", image_class)
     st.write("The Confidence score is approximately", score)
-    print(
-        "The image is classified as ", image_class, "with a similarity score of", score
-    )
 else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
@@ -68,6 +65,3 @@ else:
     score = f"{pred_prob.max():.2f}"
     st.write("The is", image_class)
     st.write("The Confidence score is approximately", score)
-    print(
-        "The image is classified as ", image_class, "with a similarity score of", score
-    )
