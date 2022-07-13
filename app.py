@@ -28,7 +28,7 @@ st.write(
 )
 
 file = st.file_uploader(
-    "Upload the image to be classified", type=["jpg", "png", "jpeg"]
+    "Upload the image to be Food Sighted", type=["jpg", "png", "jpeg"]
 )
 st.set_option("deprecation.showfileUploaderEncoding", False)
 
@@ -55,7 +55,7 @@ def upload_predict(upload_image, model, img_shape=224):
 
 
 if file is None:
-    st.text("Please upload an image and scroll down below")
+    st.text("")
 else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
