@@ -5,8 +5,8 @@ from class_names import food_list
 import numpy as np
 
 st.set_page_config(
-    page_title="Food Sight🍕👀",
-    page_icon=":pizza",
+    page_title="Food Sight",
+    page_icon=":pizza:eyes",
     initial_sidebar_state="expanded",
     menu_items={"About": "# This is an *extremely* cool Food Sight app!"},
 )
