@@ -55,7 +55,7 @@ def upload_predict(upload_image, model, img_shape=224):
 
 
 if file is None:
-    st.text("Please upload an image")
+    st.text("Please upload an image and scroll down below")
 else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
@@ -63,7 +63,7 @@ else:
     image_class = str(predictions)
     score = np.round(pred_prob.max())
     st.write("This is", image_class)
-    st.write(f"Food Sight is {score * 100}% confident")
+    st.write("Food Sight is {score * 100}% confident")
 
 if img_file_buffer is None:
     st.text("")
@@ -74,4 +74,4 @@ else:
     image_class = str(predictions)
     score = np.round(pred_prob.max())
     st.write("This is", image_class)
-    st.write(f"Food Sight is {score * 100}% confident")
+    st.write("Food Sight is {score * 100}% confident")
