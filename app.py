@@ -15,7 +15,7 @@ with st.spinner("Model is being loaded.."):
     model = load_model()
 st.write(
     """
-         # Food Sight
+         # Food Sight 🍔
          """
 )
 
@@ -52,8 +52,8 @@ else:
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
     score = f"{pred_prob.max():.2f}"
-    st.write("The image is classified as", image_class)
-    st.write("The similarity score is approximately", score)
+    st.write("The is", image_class)
+    st.write("The Confidence score is approximately", score)
     print(
         "The image is classified as ", image_class, "with a similarity score of", score
     )
