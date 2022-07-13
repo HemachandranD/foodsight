@@ -62,9 +62,8 @@ else:
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
     score = f"{pred_prob.max():.2f}"
-    st.snow()
-    st.write("The is", image_class)
-    st.write("The Confidence score is approximately", score)
+    st.write("This is", image_class)
+    st.write("Food Sight is {}% confident", score*100)
 
 if img_file_buffer is None:
     st.text("")
@@ -74,5 +73,5 @@ else:
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
     score = f"{pred_prob.max():.2f}"
-    st.write("The is", image_class)
-    st.write("The Confidence score is approximately", score)
+    st.write("This is", image_class)
+     st.write("Food Sight is {}% confident", score*100)
