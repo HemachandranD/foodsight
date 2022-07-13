@@ -4,6 +4,14 @@ from PIL import Image
 from class_names import food_list
 import numpy as np
 
+st.set_page_config(
+    page_title="Food Sight🍔👀",
+    page_icon="🍔👀",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={"About": "# This is an *extremely* cool app!"},
+)
+
 
 @st.cache(allow_output_mutation=True)
 def load_food_sight():

@@ -1,6 +1,8 @@
-##FoodSight
+## FoodSight 🍔👀
 
 This Project is inspired from FoodVision101 Tensorflow Dataset.
+
+WebApp URL: [Food Sight](https://hemachandrand-foodsight-app-f9qo2i.streamlitapp.com/)
 
 The WebApp identifies the below foods,
 
@@ -103,4 +105,7 @@ The WebApp identifies the below foods,
 - tacos
 - takoyaki
 - tiramisu
-- tuna_tartare \* waffles
+- tuna_tartare
+- waffles
+
+Hoping to train more images going forward and keep the app updated.
