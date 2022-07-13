@@ -7,13 +7,8 @@ import numpy as np
 st.set_page_config(
     page_title="Food Sight🍔👀",
     page_icon="🍔👀",
-    layout="wide",
     initial_sidebar_state="expanded",
-    menu_items={
-        "Get Help": "https://www.extremelycoolapp.com/help",
-        "Report a bug": "https://www.extremelycoolapp.com/bug",
-        "About": "# This is a header. This is an *extremely* cool app!",
-    },
+    menu_items={"About": "# This is an *extremely* cool Food Sight app!"},
 )
 
 
@@ -67,6 +62,7 @@ else:
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
     score = f"{pred_prob.max():.2f}"
+    st.snow()
     st.write("The is", image_class)
     st.write("The Confidence score is approximately", score)
 
