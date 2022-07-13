@@ -108,4 +108,4 @@ The WebApp identifies the below foods,
 - tuna_tartare
 - waffles
 
-Hoping to train more images going forward and keep the app updated.
+🔑Hoping to train more images going forward and keep the app updated!
