@@ -61,9 +61,9 @@ else:
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
-    score = np.round(pred_prob.max())
+    score = np.round(pred_prob.max() * 100)
     st.write("This is", image_class)
-    st.write("Food Sight is {score * 100}% confident")
+    st.write(f"Food Sight is {score}% confident")
 
 if img_file_buffer is None:
     st.text("")
@@ -72,6 +72,6 @@ else:
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
     image_class = str(predictions)
-    score = np.round(pred_prob.max())
+    score = np.round(pred_prob.max() * 100)
     st.write("This is", image_class)
-    st.write("Food Sight is {score * 100}% confident")
+    st.write(f"Food Sight is {score}% confident")
