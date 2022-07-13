@@ -13,9 +13,10 @@ def load_model():
 
 with st.spinner("Model is being loaded.."):
     model = load_model()
+
 st.write(
     """
-         # Food Sight 🍔
+         # Food Sight 🍔👀
          """
 )
 
