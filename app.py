@@ -49,6 +49,7 @@ def upload_predict(upload_image, model, img_shape=224):
 
 if file is None:
     st.text("Please upload an image file")
+elif img_file_buffer is not None:
     image = Image.open(img_file_buffer)
     st.image(image, use_column_width=True)
     predictions, pred_prob = upload_predict(image, model)
