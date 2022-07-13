@@ -1,4 +1,4 @@
-## FoodSight 🍔👀
+## FoodSight 🍕👀
 
 Food Sight is an Image classification Web app that has been trained and fine tuned on top of EfficientNetV2b0 using the Food Vision 101 datasets.
 
