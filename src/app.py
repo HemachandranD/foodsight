@@ -18,7 +18,7 @@ st.set_page_config(
 def Load_Food_Sight():
     current_directory = Path(__file__).parent  # Get current directory
     my_food_sight_model = open(
-        os.path.join(current_directory + "/model/", "my_food_sight_model.h5"), "rb"
+        os.path.join(current_directory, "my_food_sight_model.h5"), "rb"
     )  # rb = read bytes because we are reading the file
     model = tf.keras.models.load_model(my_food_sight_model)
     return model
