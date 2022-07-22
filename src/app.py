@@ -3,8 +3,6 @@ import tensorflow as tf
 from PIL import Image
 from const import food_list
 import numpy as np
-import os
-from pathlib import Path
 
 st.set_page_config(
     page_title="Food Sight",
@@ -16,11 +14,7 @@ st.set_page_config(
 
 @st.cache(allow_output_mutation=True)
 def Load_Food_Sight():
-    current_directory = Path(__file__).parent  # Get current directory
-    my_food_sight_model = open(
-        os.path.join(current_directory, "my_food_sight_model.h5"), "rb"
-    )  # rb = read bytes because we are reading the file
-    model = tf.keras.models.load_model(my_food_sight_model)
+    model = tf.keras.models.load_model("src/model/my_food_sight_model.h5")
     return model
 
 
