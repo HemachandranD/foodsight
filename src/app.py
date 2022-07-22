@@ -29,7 +29,7 @@ def setup():
     )  # description and instructions
 
     file = st.file_uploader(
-        "Upload the image to be Food Sighted", type=["jpg", "png", "jpeg"]
+        "Upload the image to be Food Sighted/n", type=["jpg", "png", "jpeg"]
     )
     # img_file_buffer = st.camera_input("Take a picture")
     return model, file
