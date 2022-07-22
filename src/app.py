@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 from PIL import Image
-from class_names import food_list
+from const import food_list
 import numpy as np
 
 st.set_page_config(
@@ -13,26 +13,26 @@ st.set_page_config(
 
 
 @st.cache(allow_output_mutation=True)
-def load_food_sight():
-    model = tf.keras.models.load_model("./my_food_sight_model.h5")
+def Load_Food_Sight():
+    model = tf.keras.models.load_model("./model/my_food_sight_model.h5")
     return model
 
 
-with st.spinner("Food Sight is being loaded.."):
-    model = load_food_sight()
+def setup():
+    with st.spinner("Food Sight is being loaded.."):
+        model = Load_Food_Sight()
 
-st.write(
-    """
-         # Food Sight 🍕👀
-         """
-)
+    st.write("""# Food Sight 🍕👀""")
 
-file = st.file_uploader(
-    "Upload the image to be Food Sighted", type=["jpg", "png", "jpeg"]
-)
-st.set_option("deprecation.showfileUploaderEncoding", False)
+    st.write(
+        """Food Sight is an Image classification AI🤖 Web app that has been trained and fine tuned on top of the EfficientNetV2b0 Deep Neural network."""
+    )  # description and instructions
 
-img_file_buffer = st.camera_input("Take a picture")
+    file = st.file_uploader(
+        "Upload the image to be Food Sighted", type=["jpg", "png", "jpeg"]
+    )
+    # img_file_buffer = st.camera_input("Take a picture")
+    return model, file
 
 
 def upload_predict(upload_image, model, img_shape=224):
@@ -54,6 +54,7 @@ def upload_predict(upload_image, model, img_shape=224):
     return pred_class, pred_prob
 
 
+model, file = setup()
 if file is None:
     st.text("")
 else:
@@ -63,15 +64,15 @@ else:
     image_class = str(predictions)
     score = np.round(pred_prob.max() * 100)
     st.write("This is", image_class)
-    st.write(f"Food Sight is {score}% confident")
+    st.slider("Food Sight🍕👀 Confidence(%)", 0, 100, int(score), disabled=True)
 
-if img_file_buffer is None:
-    st.text("")
-else:
-    image = Image.open(img_file_buffer)
-    st.image(image, use_column_width=True)
-    predictions, pred_prob = upload_predict(image, model)
-    image_class = str(predictions)
-    score = np.round(pred_prob.max() * 100)
-    st.write("This is", image_class)
-    st.write(f"Food Sight is {score}% confident")
+# if img_file_buffer is None:
+#     st.text("")
+# else:
+#     image = Image.open(img_file_buffer)
+#     st.image(image, use_column_width=True)
+#     predictions, pred_prob = upload_predict(image, model)
+#     image_class = str(predictions)
+#     score = np.round(pred_prob.max() * 100)
+#     st.write("This is", image_class)
+#     st.write(f"Food Sight is {score}% confident")

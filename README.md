@@ -1,6 +1,6 @@
 ## FoodSight 🍕👀
 
-Food Sight is an Image classification AI🤖 Web app that has been trained and fine tuned on top of EfficientNetV2b0 using the Food Vision 101 datasets.
+Food Sight is an Image classification AI🤖 Web app that has been trained and fine tuned on top of the EfficientNetV2b0 Deep Neural network using the Food101 Dataset.
 
 WebApp URL: [Food Sight](https://hemachandrand-foodsight-app-f9qo2i.streamlitapp.com/)
 
