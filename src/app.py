@@ -14,7 +14,7 @@ st.set_page_config(
 
 @st.cache(allow_output_mutation=True)
 def Load_Food_Sight():
-    model = tf.keras.models.load_model("/src/model/my_food_sight_model.h5")
+    model = tf.keras.models.load_model("./my_food_sight_model.h5")
     return model
 
 
