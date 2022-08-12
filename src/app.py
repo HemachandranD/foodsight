@@ -54,17 +54,22 @@ def upload_predict(upload_image, model, img_shape=224):
     return pred_class, pred_prob
 
 
-model, file = setup()
-if file is None:
-    st.text("")
-else:
-    image = Image.open(file)
-    st.image(image, use_column_width=True)
-    predictions, pred_prob = upload_predict(image, model)
-    image_class = str(predictions)
-    score = np.round(pred_prob.max() * 100)
-    st.write("This is", image_class)
-    st.slider("Food Sight🍕👀 Confidence(%)", 0, 100, int(score), disabled=True)
+def main():
+    model, file = setup()
+    if file is None:
+        st.text("")
+    else:
+        image = Image.open(file)
+        st.image(image, use_column_width=True)
+        predictions, pred_prob = upload_predict(image, model)
+        image_class = str(predictions)
+        score = np.round(pred_prob.max() * 100)
+        st.write("This is", image_class)
+        st.slider("Food Sight🍕👀 Confidence(%)", 0, 100, int(score), disabled=True)
+
+
+if __name__ == "__main__":
+    main()
 
 # if img_file_buffer is None:
 #     st.text("")
