@@ -19,10 +19,16 @@ def Load_Food_Sight():
 
 
 def setup():
+    html_temp = """
+	<img src="https://i.ibb.co/q5ycrGF/pepporoni.png" class="rotate linear infinite center" width="150" height="150"/>
+    <h3 class = "css-els2uy"> Food Sight 🍕👀 </h3>
+	"""
+    # <header><h3 class = "css-els2uy"> Food Sight 🍕👀 </h3></header>
+    st.markdown(html_temp, unsafe_allow_html=True)
     with st.spinner("Food Sight is being loaded.."):
         model = Load_Food_Sight()
 
-    st.write("""# Food Sight 🍕👀""")
+    # st.write("""# Food Sight 🍕👀""")
 
     st.write(
         """Food Sight is an Image classification AI🤖 Web app that has been trained and fine tuned on top of the EfficientNetV2b0 Deep Neural network."""
